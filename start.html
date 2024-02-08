@@ -6,14 +6,16 @@
     <title>Викторина</title>
 </head>
 <body>
-<h2>Выберите викторину:</h2>
-    <form method="post" action="/">
-        <select name="quiz">
-            {% for id, name in q_list %}
-                <option value="{{id}}">{{name}}</option>
-            {% endfor %}    
-        </select>
-        <p><input type="submit" value="Выбрать"> </p>
-    </form>
+    <div class="container">
+        <h2>Выберите викторину:</h2>
+        <form method="post" action="/">
+            <select name="quiz">
+                {% for id, name in q_list %}
+                    <option value="{{id}}">{{name}}</option>
+                {% endfor %}
+            </select>
+            <p><input type="submit" value="Выбрать"> </p>
+        </form>
+    </div>
 </body>
 </html>

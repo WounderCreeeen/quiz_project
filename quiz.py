@@ -16,7 +16,7 @@ def end_quiz():
 
 def quiz_form():
     text1 = '''<html><body><h2>Выберите викторину: <h2><form method="post" action="index"><select name="quiz">'''
-    text2 = '''<p><input type="submit" value="Выбрать"></p>'''
+    text2 = '''<p> <input type="submit" value="Выбрать"></p>'''
     text3 = '''</select'''
     text4 = '''</form></body></html>'''
     options = ''' '''

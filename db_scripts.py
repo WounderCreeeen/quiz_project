@@ -103,6 +103,7 @@ def add_quiz():
 
 
 def add_links():
+    arr = [1, 2, 3, 4, 5, 6]
     open_db()
     cursor.execute('''PRAGMA foreign_keys=on''')
     query = "INSERT INTO quiz_content (quiz_id, question_id) VALUES (?,?)"
