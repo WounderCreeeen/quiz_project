@@ -75,13 +75,13 @@ def show_tables():
 
 def add_questions():
     questions = [
-        ('q1', 'ra1', 'wa11', 'wa12', 'wa13'),
-        ('q2', 'ra2', 'wa21', 'wa22', 'wa23'),
-        ('q3', 'ra3', 'wa31', 'wa32', 'wa33'),
-        ('q4', 'ra4', 'wa41', 'wa42', 'wa43'),
-        ('q5', 'ra5', 'wa51', 'wa52', 'wa53'),
-        ('q6', 'ra6', 'wa61', 'wa62', 'wa63'),
-        ('q7', 'ra7', 'wa71', 'wa72', 'wa73')
+        ('Какой город является столицей Франции?', 'Париж', 'Львов', 'Марсель', 'Тулу'),
+        ('Какой город является столицей Германии?', 'Берлин', 'Гамбург', 'Мюнхен', 'Франкфурт'),
+        ('Какой город является столицей США?', 'Вашингтон', 'Нью-Йорк', 'Чикаго', 'Лос-Анджелес'),
+        ('Какой город является столицей Великобритании?', 'Лондон', 'Эдинбург', 'Бермингем', 'Кардифф'),
+        ('Какой город является столицей Италии?', 'Рим', 'Наполеон', 'Милан', 'Турин'),
+        ('Какой город является столицей Испании?', 'Мадрид', 'Барселона', 'Севиль', 'Валенсия'),
+        ('Какой город является столицей Японии?', 'Токио', 'Осака', 'Киото', 'Нагоя')
     ]
     open_db()
     cursor.executemany('''INSERT INTO question (question, answer, wrong1, wrong2, wrong3) VALUES (?,?,?,?,?)''',
@@ -131,7 +131,7 @@ def get_question_after(last_id=0, vict_id=1):
 
 
 def get_quizes():
-    query = 'SELECT = FROM quiz ORDER BY id'
+    query = 'SELECT * FROM quiz ORDER BY id'
     open_db()
     cursor.execute(query)
     result = cursor.fetchall()
@@ -162,7 +162,7 @@ def get_random_quiz_id():
 def check_answer(q_id, ans_text):
     query = '''
     SELECT question.answer
-    FORM quiz_content, question
+    FROM quiz_content, question
     WHERE quiz_content.id = ?
     AND quiz_content.question_id = question_id
     '''

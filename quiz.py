@@ -3,7 +3,6 @@ from flask import *
 from db_scripts import *
 from random import randint, shuffle
 
-
 def start_quiz(quiz_id):
     session['quiz'] = quiz_id
     session['last_question'] = 0
@@ -25,7 +24,8 @@ def quiz_form():
     for id, name in q_list:
         text = ('''<option value="''' + str(id) + '''">''' + str(name) + '''</option>''')
         options = options + text
-    return text1 + options + text3
+    return text1 + options + text2 + text3 + text4
+    # return text1 + options + text3
 
 
 def index():
@@ -66,7 +66,6 @@ def test():
             save_answers()
         next_question = get_question_after(session['last_question'], session['quiz'])
         if next_question is None or len(next_question) == 0:
-            # session['last_question'] = result[0]
             return redirect(url_for('result'))
         return question_form(next_question)
 
